@@ -2,10 +2,10 @@
 console.log("%c--Söka efter likheter mellan ord--", "font-weight:bold");
 
 //Play single game if play=true
-play = true;
+play = false;
 while (play) {
   let result = ordlikheter();
-  console.log(result);
+  console.log(`%c${result} letters in common`, "color:green;font-weight:bold");
   play = confirm("Spela igen?");
 }
 
@@ -16,6 +16,18 @@ console.log(
   "font-weight:bold;color:orange"
 );
 
-function ordlikheter(){
-    return "blahablaha";
+function ordlikheter() {
+  let word1 = prompt("one word, please!");
+  let word2 = prompt("one last word, please!");
+  let lettersInCommon = 0;
+  let minWordLength = word1.length;
+  if (word2.length < minWordLength) {
+    minWordLength = word2.length;
+  }
+  for (let i = 0; i < minWordLength; i++) {
+    if (word1[i] == word2[i]) {
+      lettersInCommon++;
+    }
+  }
+  return lettersInCommon;
 }
